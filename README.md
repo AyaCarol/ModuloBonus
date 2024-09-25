@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/e2963855-bdde-4a8d-8f31-6c04a9b21eea)
+
 <H1>Modulo Bonus</H1>
 <p>Repositório com objetivo de armazenar as diferentes versões do projeto voltado a disciplina de Imersão Profissional: Fábrica de Software</p>
 <h2>Descrição do Projeto</h2>
@@ -32,12 +34,6 @@ No entanto, existem algumas exceções para esse aumento:</p>
   <li><strong>Código 1:</strong> Retornado se qualquer uma das tabelas de entrada (Funcionários ou Departamentos) estiver vazia, ou seja, sem dados.</li>
   <li><strong>Código 2:</strong> Retornado se não houver nenhum funcionário elegível nos departamentos com maior valor de vendas.</li>
 </ul>
-
-
-
-
-
-
 
 Caso o modulo execute com sucesso deve retornar o valor 0.
 Regras de Negócio:
