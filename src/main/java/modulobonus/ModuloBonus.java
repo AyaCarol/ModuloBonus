@@ -23,6 +23,14 @@ public class ModuloBonus {
         
         System.out.println("O departamento com maior venda foi: " + controle.verificaMaiorVenda().getId());
         
+        if(controle.verificaMaiorVenda() == null){
+            System.out.println("Erro 1: Departamento vazio ou não encontrado.");
+        }else{
+            System.out.println("Departamento com maior número de vendas: " + controle.verificaMaiorVenda());
+            controle.calcularBonus();
+        }
+        
+        
          /*
         - ADICIONAR CALCULO DE SALARIO + COMISSAO
         - Modificar FOR por FOR EACH no Controle   FEITO!!!
