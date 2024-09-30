@@ -1,6 +1,6 @@
+<H1>Modulo Bonus</H1>
 ![image](https://github.com/user-attachments/assets/e7cc41ba-bcf0-4361-8c41-4fd2983f9d36)
 
-<H1>Modulo Bonus</H1>
 <p>Repositório com objetivo de armazenar as diferentes versões do projeto voltado a disciplina de Imersão Profissional: Fábrica de Software</p>
 <h2>Descrição do Projeto</h2>
 <p>O objetivo do módulo BONUS é aumentar o salário de todos os funcionários que pertencem ao(s) departamento(s) com o maior valor de vendas. O bônus salarial padrão é de $2.000.
