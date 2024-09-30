@@ -1,5 +1,6 @@
 package modulobonus;
 
+import java.math.BigDecimal;
 import java.util.LinkedList;
 
 public class Controle {
@@ -16,32 +17,6 @@ public class Controle {
     public void adicionarDepartamento(Departamento departamento){
          departamentos.add(departamento);
     }
-    
-    /*
-    public Departamento verificaMaiorVenda(){
-        if(departamentos.isEmpty()){
-            System.out.println("Nenhum departamento disponível");
-            return null;
-        }
-        
-        Departamento depMaiorVenda = null;
-        double maiorVenda = 0;
-        
-        for(Departamento departamento : departamentos){
-            int total = departamento.calcularTotal();
-            if(total > maiorVenda){
-                maiorVenda = total;
-                depMaiorVenda = departamento;
-            }
-        }
-        
-        if(depMaiorVenda != null){
-            return depMaiorVenda;
-        }else{
-            return null;
-        }
-    }
-    */
     
     public Departamento verificaMaiorVenda(){
         
@@ -62,13 +37,28 @@ public class Controle {
             }
         });
         
-        if(depMaiorVenda != null){
-            return depMaiorVenda;
-        }else{
+        if(depMaiorVenda.verificaVazio() || depMaiorVenda == null){
             return null;
+        }else{
+            return depMaiorVenda;
         }
     }
     
+    public void calcularBonus(){
+        
+        this.depMaiorVenda.getFuncionarios().forEach(funcionario ->{
+            double salarioAtual = funcionario.getSalario();
+            if(funcionario.getCargo() == Funcionario.Cargo.VENDEDOR && funcionario.getSalario() < 150000){
+                funcionario.setSalario(salarioAtual+=2000);
+                System.out.println("Vendedor " + funcionario.getId());
+                System.out.println("Salario antigo: "+ salarioAtual + "\nSalario ajustado: " + funcionario.getSalario());
+            }else if(funcionario.getSalario() >= 150000 || funcionario.getCargo()== Funcionario.Cargo.GERENTE){
+                funcionario.setSalario(salarioAtual+=1000);
+                System.out.println("Funcionario " + funcionario.getId());
+                System.out.println("Salario antigo: "+ salarioAtual + "\nSalario ajustado: " + funcionario.getSalario());
+            }
+        });
+    }
    
     
     
