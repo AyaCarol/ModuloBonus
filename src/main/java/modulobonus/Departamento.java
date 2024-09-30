@@ -17,17 +17,6 @@ public class Departamento {
         funcionarios.add(funcionario);
     }
     
-    /*
-    public int calcularTotal(){
-        for(Funcionario funcionario : funcionarios){
-            if(funcionario instanceof Vendedor){
-                Vendedor vendedor = (Vendedor) funcionario;
-                this.totalVendas += vendedor.getVendas();
-            }
-        }
-        return totalVendas;
-    }
-    */
     public LinkedList<Funcionario> getFuncionarios(){
         return funcionarios;
     }
@@ -44,6 +33,11 @@ public class Departamento {
         return totalVendas;
     }
     
-    
-    
+    public boolean verificaVazio(){
+        if(funcionarios.isEmpty()){
+            return true;
+        }else{
+            return false;
+        }
+    }    
 }
