@@ -5,6 +5,7 @@ import java.util.LinkedList;
 public class Departamento {
     private int id;
     private int totalVendas;
+    //private BigDecimal vendaTotal;
     private LinkedList<Funcionario> funcionarios;
 
     public Departamento(int id) {
@@ -16,6 +17,7 @@ public class Departamento {
         funcionarios.add(funcionario);
     }
     
+    /*
     public int calcularTotal(){
         for(Funcionario funcionario : funcionarios){
             if(funcionario instanceof Vendedor){
@@ -25,8 +27,23 @@ public class Departamento {
         }
         return totalVendas;
     }
-
+    */
+    public LinkedList<Funcionario> getFuncionarios(){
+        return funcionarios;
+    }
+    
     public int getId() {
         return id;
     }
+
+    public void setTotalVendas(int totalVendas) {
+        this.totalVendas = totalVendas;
+    }
+
+    public int getTotalVendas() {
+        return totalVendas;
+    }
+    
+    
+    
 }
