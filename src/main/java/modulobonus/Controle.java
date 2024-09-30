@@ -48,14 +48,17 @@ public class Controle {
         
         this.depMaiorVenda.getFuncionarios().forEach(funcionario ->{
             double salarioAtual = funcionario.getSalario();
+            double salarioAntigo = funcionario.getSalario();
             if(funcionario.getCargo() == Funcionario.Cargo.VENDEDOR && funcionario.getSalario() < 150000){
                 funcionario.setSalario(salarioAtual+=2000);
-                System.out.println("Vendedor " + funcionario.getId());
-                System.out.println("Salario antigo: "+ salarioAtual + "\nSalario ajustado: " + funcionario.getSalario());
+                System.out.println("Funcionario " + funcionario.getId());
+                System.out.println("Cargo: " + funcionario.getCargo());
+                System.out.println("Salario antigo: "+ salarioAntigo + "\nSalario ajustado: " + funcionario.getSalario());
             }else if(funcionario.getSalario() >= 150000 || funcionario.getCargo()== Funcionario.Cargo.GERENTE){
                 funcionario.setSalario(salarioAtual+=1000);
                 System.out.println("Funcionario " + funcionario.getId());
-                System.out.println("Salario antigo: "+ salarioAtual + "\nSalario ajustado: " + funcionario.getSalario());
+                System.out.println("Cargo: " + funcionario.getCargo());
+                System.out.println("Salario antigo: "+ salarioAntigo + "\nSalario ajustado: " + funcionario.getSalario());
             }
         });
     }
