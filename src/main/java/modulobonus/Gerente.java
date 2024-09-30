@@ -2,8 +2,8 @@ package modulobonus;
 
 public class Gerente extends Funcionario{
     
-    public Gerente(int id, double salario, Cargo cargo, Departamento departamento) {
-        super(id, salario, cargo, departamento);
+    public Gerente(int id, double salario, Departamento departamento) {
+        super(id, salario, Cargo.GERENTE, departamento);
     }
     
 }
