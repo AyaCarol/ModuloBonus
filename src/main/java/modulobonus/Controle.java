@@ -4,23 +4,20 @@ import java.util.LinkedList;
 
 public class Controle {
     private LinkedList<Departamento> departamentos;
+    private Departamento depMaiorVenda;
+    private double maiorVenda;
     
     public Controle(){
         this.departamentos = new LinkedList<>();
+        this.depMaiorVenda = null;
+        this.maiorVenda = 0;
     }
     
     public void adicionarDepartamento(Departamento departamento){
          departamentos.add(departamento);
     }
     
-    public int calcularVendas(){
-        int total = 0;
-        for(Departamento departamento : departamentos){
-            total += departamento.calcularTotal();
-        }
-        return total;
-    }
-    
+    /*
     public Departamento verificaMaiorVenda(){
         if(departamentos.isEmpty()){
             System.out.println("Nenhum departamento disponível");
@@ -43,15 +40,36 @@ public class Controle {
         }else{
             return null;
         }
-        
     }
-    /*
-     - adicionar calculo de bonus
-     - adicionar verificação se é vendedor ou gerente e dar respectivos bonus
-     - adicionar tratativa de erro
-            Código 1: Retornado se qualquer uma das tabelas de entrada (Funcionários ou Departamentos) estiver vazia, ou seja, sem dados.
-            Código 2: Retornado se não houver nenhum funcionário elegível nos departamentos com maior valor de vendas.;
     */
+    
+    public Departamento verificaMaiorVenda(){
+        
+        departamentos.forEach(departamento -> {
+            
+            departamento.getFuncionarios().forEach(funcionario ->{
+                int total = 0;
+                if(funcionario instanceof Vendedor){
+                    Vendedor vendedor = (Vendedor) funcionario;
+                    total += vendedor.getVendas();
+                    departamento.setTotalVendas(total);
+                }
+            });
+            
+            if(departamento.getTotalVendas()>maiorVenda){
+                maiorVenda = departamento.getTotalVendas();
+                depMaiorVenda = departamento;
+            }
+        });
+        
+        if(depMaiorVenda != null){
+            return depMaiorVenda;
+        }else{
+            return null;
+        }
+    }
+    
+   
     
     
 }
