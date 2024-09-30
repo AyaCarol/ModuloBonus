@@ -1,8 +1,10 @@
 package modulobonus;
 
+import java.math.BigDecimal;
+
 public abstract class Funcionario {
     private int id;
-    private double salario;
+    protected double salario;
     private Cargo cargo;
     private Departamento departamento;
     
@@ -16,5 +18,21 @@ public abstract class Funcionario {
         this.salario = salario;
         this.cargo = cargo;
         this.departamento = departamento;
+    }
+
+    public Cargo getCargo() {
+        return cargo;
+    }
+
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
+
+    public double getSalario() {
+        return salario;
+    }
+
+    public int getId() {
+        return id;
     }
 }
