@@ -41,7 +41,6 @@ public class ModuloBonus {
             controle.calcularBonus();
         }
         
-        
          /*
         - modificar DOUBLE por BIGDECIMAL pelo erro de arredondamento FEITO!!!
         - modificar total de vendas de inteiro para total em reais FEITO!!
