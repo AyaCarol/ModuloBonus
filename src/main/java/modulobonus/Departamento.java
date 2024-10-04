@@ -1,11 +1,11 @@
 package modulobonus;
 
+import java.math.BigDecimal;
 import java.util.LinkedList;
 
 public class Departamento {
     private int id;
-    private int totalVendas;
-    //private BigDecimal vendaTotal;
+    private BigDecimal totalVendas;
     private LinkedList<Funcionario> funcionarios;
 
     public Departamento(int id) {
@@ -25,11 +25,11 @@ public class Departamento {
         return id;
     }
 
-    public void setTotalVendas(int totalVendas) {
+    public void setTotalVendas(BigDecimal totalVendas) {
         this.totalVendas = totalVendas;
     }
 
-    public int getTotalVendas() {
+    public BigDecimal getTotalVendas() {
         return totalVendas;
     }
     
