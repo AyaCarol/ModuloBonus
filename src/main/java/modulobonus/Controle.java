@@ -51,14 +51,10 @@ public class Controle {
             double salarioAntigo = funcionario.getSalario();
             if(funcionario.getCargo() == Funcionario.Cargo.VENDEDOR && funcionario.getSalario() < 150000){
                 funcionario.setSalario(salarioAtual+=2000);
-                System.out.println("Funcionario " + funcionario.getId());
-                System.out.println("Cargo: " + funcionario.getCargo());
-                System.out.println("Salario antigo: "+ salarioAntigo + "\nSalario ajustado: " + funcionario.getSalario());
+                System.out.println("\nFuncionario " + funcionario.getId() + "\nCargo: " + funcionario.getCargo() + "\nSalario antigo: "+ salarioAntigo + "\nSalario ajustado: " + funcionario.getSalario());
             }else if(funcionario.getSalario() >= 150000 || funcionario.getCargo()== Funcionario.Cargo.GERENTE){
                 funcionario.setSalario(salarioAtual+=1000);
-                System.out.println("Funcionario " + funcionario.getId());
-                System.out.println("Cargo: " + funcionario.getCargo());
-                System.out.println("Salario antigo: "+ salarioAntigo + "\nSalario ajustado: " + funcionario.getSalario());
+                System.out.println("\nFuncionario " + funcionario.getId() + "\nCargo: " + funcionario.getCargo() + "\nSalario antigo: "+ salarioAntigo + "\nSalario ajustado: " + funcionario.getSalario());
             }
         });
     }
