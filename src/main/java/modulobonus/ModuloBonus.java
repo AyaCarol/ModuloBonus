@@ -1,21 +1,23 @@
 package modulobonus;
 
+import java.math.BigDecimal;
+
 public class ModuloBonus {
 
     public static void main(String[] args) {
         Departamento vendas1 = new Departamento(1);
         Departamento vendas2 = new Departamento(2);
         
-        Vendedor v1 = new Vendedor(1, 150000, vendas1, 120, 10);
+        Vendedor v1 = new Vendedor(1, BigDecimal.valueOf(150000), vendas1, BigDecimal.valueOf(100000));
         v1.calcularSalario();
-        Vendedor v2 = new Vendedor(2, 21300, vendas1, 120, 20);
+        Vendedor v2 = new Vendedor(2, BigDecimal.valueOf(21300), vendas1, BigDecimal.valueOf(200000));
         v2.calcularSalario();
-        Vendedor v3 = new Vendedor(3, 150000, vendas2, 120, 15);
+        Vendedor v3 = new Vendedor(3, BigDecimal.valueOf(150000), vendas2, BigDecimal.valueOf(150000));
         v3.calcularSalario();
-        Vendedor v4 = new Vendedor(4, 12200, vendas2, 120, 35);
+        Vendedor v4 = new Vendedor(4, BigDecimal.valueOf(12200), vendas2, BigDecimal.valueOf(350000));
         v4.calcularSalario();
-        Gerente g1 = new Gerente(5, 11200, vendas1);
-        Gerente g2 = new Gerente (6, 11200, vendas2);
+        Gerente g1 = new Gerente(5, BigDecimal.valueOf(11200), vendas1);
+        Gerente g2 = new Gerente (6, BigDecimal.valueOf(11200), vendas2);
         
         vendas1.adicionarFuncionario(g1);
         vendas1.adicionarFuncionario(v1);
@@ -41,8 +43,8 @@ public class ModuloBonus {
         
         
          /*
-        - modificar DOUBLE por BIGDECIMAL pelo erro de arredondamento
-        - modificar total de vendas de inteiro para total em reais
+        - modificar DOUBLE por BIGDECIMAL pelo erro de arredondamento FEITO!!!
+        - modificar total de vendas de inteiro para total em reais FEITO!!
         - modificar tratativa de erro para exception FEITO!!!!
         - ADICIONAR CALCULO DE SALARIO + COMISSAO   FEITO!!
         - Modificar FOR por FOR EACH no Controle   FEITO!!!
