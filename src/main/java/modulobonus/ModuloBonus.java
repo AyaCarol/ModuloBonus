@@ -6,12 +6,16 @@ public class ModuloBonus {
         Departamento vendas1 = new Departamento(1);
         Departamento vendas2 = new Departamento(2);
         
-        Vendedor v1 = new Vendedor(1, 1200, vendas1, 120, 10);
-        Vendedor v2 = new Vendedor(2, 1300, vendas1, 120, 20);
-        Vendedor v3 = new Vendedor(3, 1200, vendas2, 120, 15);
-        Vendedor v4 = new Vendedor(4, 1200, vendas2, 120, 35);
-        Gerente g1 = new Gerente(1, 1200, vendas1);
-        Gerente g2 = new Gerente (2, 1200, vendas2);
+        Vendedor v1 = new Vendedor(1, 150000, vendas1, 120, 10);
+        v1.calcularSalario();
+        Vendedor v2 = new Vendedor(2, 21300, vendas1, 120, 20);
+        v2.calcularSalario();
+        Vendedor v3 = new Vendedor(3, 150000, vendas2, 120, 15);
+        v3.calcularSalario();
+        Vendedor v4 = new Vendedor(4, 12200, vendas2, 120, 35);
+        v4.calcularSalario();
+        Gerente g1 = new Gerente(5, 11200, vendas1);
+        Gerente g2 = new Gerente (6, 11200, vendas2);
         
         vendas1.adicionarFuncionario(g1);
         vendas1.adicionarFuncionario(v1);
@@ -30,18 +34,21 @@ public class ModuloBonus {
         System.out.println("O departamento com maior venda foi: " + controle.verificaMaiorVenda().getId());
         
         if(controle.verificaMaiorVenda() == null){
-            System.out.println("Erro 1: Departamento vazio ou não encontrado.");
+            throw new IllegalArgumentException("Erro 1: Departamento vazio ou não encontrado.");
         }else{
             controle.calcularBonus();
         }
         
         
          /*
+        - modificar DOUBLE por BIGDECIMAL pelo erro de arredondamento
+        - modificar total de vendas de inteiro para total em reais
+        - modificar tratativa de erro para exception FEITO!!!!
         - ADICIONAR CALCULO DE SALARIO + COMISSAO   FEITO!!
         - Modificar FOR por FOR EACH no Controle   FEITO!!!
         - adicionar calculo de bonus    FEITO!!
         - adicionar verificação se é vendedor ou gerente e dar respectivos bonus FEITO!!
-        - adicionar tratativa de erro 
+        - adicionar tratativa de erro  FEITO!!
                Código 1: Retornado se qualquer uma das tabelas de entrada (Funcionários ou Departamentos) estiver vazia, ou seja, sem dados.
                Código 2: Retornado se não houver nenhum funcionário elegível nos departamentos com maior valor de vendas.
         */
