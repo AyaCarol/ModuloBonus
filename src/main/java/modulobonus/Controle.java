@@ -6,12 +6,12 @@ import java.util.LinkedList;
 public class Controle {
     private LinkedList<Departamento> departamentos;
     private Departamento depMaiorVenda;
-    private double maiorVenda;
+    private BigDecimal maiorVenda;
     
     public Controle(){
         this.departamentos = new LinkedList<>();
         this.depMaiorVenda = null;
-        this.maiorVenda = 0;
+        this.maiorVenda = BigDecimal.valueOf(0);
     }
     
     public void adicionarDepartamento(Departamento departamento){
@@ -23,15 +23,15 @@ public class Controle {
         departamentos.forEach(departamento -> {
             
             departamento.getFuncionarios().forEach(funcionario ->{
-                int total = 0;
+                BigDecimal total = BigDecimal.valueOf(0);
                 if(funcionario instanceof Vendedor){
                     Vendedor vendedor = (Vendedor) funcionario;
-                    total += vendedor.getVendas();
+                    total = total.add(vendedor.getVendas());
                     departamento.setTotalVendas(total);
                 }
             });
-            
-            if(departamento.getTotalVendas()>maiorVenda){
+            //departamento.getTotalVendas()>maiorVenda
+            if(departamento.getTotalVendas().compareTo(maiorVenda) > 0){
                 maiorVenda = departamento.getTotalVendas();
                 depMaiorVenda = departamento;
             }
@@ -47,18 +47,15 @@ public class Controle {
     public void calcularBonus(){
         
         this.depMaiorVenda.getFuncionarios().forEach(funcionario ->{
-            double salarioAtual = funcionario.getSalario();
-            double salarioAntigo = funcionario.getSalario();
-            if(funcionario.getCargo() == Funcionario.Cargo.VENDEDOR && funcionario.getSalario() < 150000){
-                funcionario.setSalario(salarioAtual+=2000);
+            BigDecimal salarioAtual = funcionario.getSalario();
+            BigDecimal salarioAntigo = funcionario.getSalario();
+            if(funcionario.getCargo() == Funcionario.Cargo.VENDEDOR && funcionario.getSalario().compareTo(BigDecimal.valueOf(150000)) < 0){
+                funcionario.setSalario(salarioAtual = salarioAtual.add(BigDecimal.valueOf(2000)));
                 System.out.println("\nFuncionario " + funcionario.getId() + "\nCargo: " + funcionario.getCargo() + "\nSalario antigo: "+ salarioAntigo + "\nSalario ajustado: " + funcionario.getSalario());
-            }else if(funcionario.getSalario() >= 150000 || funcionario.getCargo()== Funcionario.Cargo.GERENTE){
-                funcionario.setSalario(salarioAtual+=1000);
+            }else if(funcionario.getSalario().compareTo(BigDecimal.valueOf(150000)) > 0 || funcionario.getCargo()== Funcionario.Cargo.GERENTE){
+                funcionario.setSalario(salarioAtual = salarioAtual.add(BigDecimal.valueOf(1000)));
                 System.out.println("\nFuncionario " + funcionario.getId() + "\nCargo: " + funcionario.getCargo() + "\nSalario antigo: "+ salarioAntigo + "\nSalario ajustado: " + funcionario.getSalario());
             }
         });
     }
-   
-    
-    
 }
