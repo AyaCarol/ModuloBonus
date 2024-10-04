@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public abstract class Funcionario {
     private int id;
-    protected double salario;
+    protected BigDecimal salario;
     private Cargo cargo;
     private Departamento departamento;
     
@@ -13,7 +13,7 @@ public abstract class Funcionario {
         GERENTE
     }
 
-    public Funcionario(int id, double salario, Cargo cargo, Departamento departamento) {
+    public Funcionario(int id, BigDecimal salario, Cargo cargo, Departamento departamento) {
         this.id = id;
         this.salario = salario;
         this.cargo = cargo;
@@ -24,11 +24,11 @@ public abstract class Funcionario {
         return cargo;
     }
 
-    public void setSalario(double salario) {
+    public void setSalario(BigDecimal salario) {
         this.salario = salario;
     }
 
-    public double getSalario() {
+    public BigDecimal getSalario() {
         return salario;
     }
 
