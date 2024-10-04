@@ -6,6 +6,7 @@ import java.util.LinkedList;
 public class Departamento {
     private int id;
     private BigDecimal totalVendas;
+    //private BigDecimal vendaTotal;
     private LinkedList<Funcionario> funcionarios;
 
     public Departamento(int id) {
