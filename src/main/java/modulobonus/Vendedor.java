@@ -17,6 +17,8 @@ public class Vendedor extends Funcionario{
         return vendas;
     } 
     
+  
+    
     public void calcularSalario(){
         this.comissao = this.vendas.multiply(BigDecimal.valueOf(0.01));
         this.salario = this.salario.add(this.comissao);
@@ -27,4 +29,6 @@ public class Vendedor extends Funcionario{
     public BigDecimal getComissao() {
         return comissao;
     }
+    
+
 }
