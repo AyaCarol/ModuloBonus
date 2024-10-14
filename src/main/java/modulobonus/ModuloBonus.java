@@ -2,7 +2,7 @@ package modulobonus;
 
 import java.math.BigDecimal;
 
-public class ModuloBonus {
+public class Main {
 
     public static void main(String[] args) {
         Departamento vendas1 = new Departamento(1);
